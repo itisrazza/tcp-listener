@@ -1,0 +1,30 @@
+{
+  "name": "tcp-listener",
+  "version": "1.0.0",
+  "description": "A simple TCP listener that blurts out whatever it reads.",
+  "main": "tcpd.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "tcp-listener": "tcpd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thegreatrazz/tcp-listener.git"
+  },
+  "keywords": [
+    "tcp",
+    "server"
+  ],
+  "author": "thegreatrazz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thegreatrazz/tcp-listener/issues"
+  },
+  "homepage": "https://github.com/thegreatrazz/tcp-listener#readme",
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.17.1"
+  }
+}
