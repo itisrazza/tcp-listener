@@ -24,8 +24,8 @@ program
     .version    (package.version)
     .description(package.description)
     .option     ("-p, --port <port>"   , "Port to listen on"                 , parseInt)
-    .option     ("-d, --display <mode>", "Display mode (hybird, string, hex)")
-    .option     ("-e, --encoding <fmt>", "Encoding")
+    .option     ("-d, --display <mode>", "Display mode (text, hex, both)")
+    .option     ("-e, --encoding <fmt>", "Encoding (\"utf8\" is default)")
     .parse(process.argv)
 
 // Family-friendly server options
@@ -51,12 +51,12 @@ var server = net.createServer({}, (c) =>
 
     c.on("data", (data) =>
     {
-        console.log(chalk.blue(ipToString(c.remoteFamily, c.remoteAddress, c.remotePort)) + ` ~ ${data.length} bytes.`)
-        if (logDisplay === "text")
+        console.log(chalk.magenta(ipToString(c.remoteFamily, c.remoteAddress, c.remotePort)) + ` ~ ${data.length} bytes.`)
+        if (logDisplay === "text" || logDisplay === "both")
         {
             console.log(data.toString(program.encoding))
         }
-        else (logDisplay === "hex")
+        else if (logDisplay === "hex" || logDisplay === "both")
         {
             data.forEach((value, index) => 
             {
